@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+    <script>
+        let humanScore = 0
+        let computerScore = 0
+        const validChoices = ['rock', 'paper', 'scissors']
+
+        function getComputerChoice() {
+            const minCeiled = Math.ceil(1);
+            const maxFloored = Math.floor(3);
+            let randomNumber = Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
+            // return randomNumber === 1 ? 'rock' : randomNumber === 2 ? 'paper' : 'scissors'
+            return 'rock'
+        }
+        
+        function getHumanChoice() {
+            let choice = prompt('Choose rock, paper, or scissors. Type your choice below.').toLowerCase()
+            
+            if (validChoices.includes(choice)) {
+                return choice
+            } 
+            else {
+                return `Error, your input ${choice} is invalid`
+            }
+        }
+
+        function playRound(humanChoice, computerChoice) {
+            if (!validChoices.includes(humanChoice) || !validChoices.includes(computerChoice)) {
+                return 'Error'
+            }
+
+            let resultMessage = `You selected ${humanChoice} and played against ${computerChoice}\n`
+            switch (humanChoice) {
+                case 'rock':
+                    if (computerChoice === 'paper') {
+                        resultMessage += `You lost, better luck next time. Score is now You: ${humanScore} - Computer: ${++computerScore}`
+                        break
+                    }
+                    else if (computerChoice === 'scissors') {
+                        resultMessage += `You won, great job! Score is now You: ${++humanScore} - Computer: ${computerScore}`
+                        break
+                    }
+                    else {
+                        resultMessage += `You tied, try again! Score is still You: ${humanScore} - Computer: ${computerScore}`
+                        break
+                    }
+                case 'paper':
+                    if (computerChoice === 'scissors') {
+                        resultMessage += `You lost, better luck next time. Score is now You: ${humanScore} - Computer: ${++computerScore}`
+                        break
+                    }
+                    else if (computerChoice === 'rock') {
+                        resultMessage += `You won, great job! Score is now You: ${++humanScore} - Computer: ${computerScore}`
+                        break
+                    }
+                    else {
+                        resultMessage += `You tied, try again! Score is still You: ${humanScore} - Computer: ${computerScore}`
+                        break
+                    }
+                case 'scissors':
+                    if (computerChoice === 'rock') {
+                        resultMessage += `You lost, better luck next time. Score is now You: ${humanScore} - Computer: ${++computerScore}`
+                        break
+                    }
+                    else if (computerChoice === 'paper') {
+                        resultMessage += `You won, great job! Score is now You: ${++humanScore} - Computer: ${computerScore}`
+                        break
+                    }
+                    else {
+                        resultMessage += `You tied, try again! Score is still You: ${humanScore} - Computer: ${computerScore}`
+                        break
+                    }
+            }
+            
+            return resultMessage;
+        }
+
+        const maxRounds = 5;
+        for (let round = 0; round < maxRounds; round++) {
+            const humanChoice = getHumanChoice();
+            const computerChoice = getComputerChoice();
+            console.log(playRound(humanChoice, computerChoice))
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
