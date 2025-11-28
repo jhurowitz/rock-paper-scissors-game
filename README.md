@@ -4,8 +4,8 @@ A project from The Odin Project that evolves with curriculum progression
 only using HTML, JS functions, and console logs
 2. Add a UI aspect with JS DOM functionality
 2a. Design visual for rock, paper, and scissors and score tracker
-\n\t2a1. Each visual for choice will have an image and a button to select it
-\n\t2a2. Score tracker will change based on decision of game
+2a1. Each visual for choice will have an image and a button to select it
+2a2. Score tracker will change based on decision of game
 2b. Result of each match will be prompted on the screen
 3. Bonus may be to add gradient, design, and animations (stay tuned)
 
